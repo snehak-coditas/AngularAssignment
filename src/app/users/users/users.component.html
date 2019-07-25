@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="row">
+    <div class="column left">
+
+      <select class="selectOptions" [(ngModel)]="userFilter.sort" type="text" placeholder="Sort By Name"
+        (ngModelChange)="getSortedNames()">
+        <button (click)="getSortedNames()"></button>
+        <option value="" disabled>Sort By Name</option>
+        <option value="Name (A - Z)">Name (A - Z)</option>
+        <option value="Name (Z - A)">Name (Z - A)</option>
+
+      </select>
+
+
+    </div>
+    <div class="column right">
+      <div class="search">
+        <input [(ngModel)]="userFilter.search" type="text" placeholder="Search" (ngModelChange)="searchValue()">
+        <button (click)="searchValue()" class="searchButton">
+          <img src='../../../assets/images/search.png' />
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <p>Total results : {{total_count}}</p>
+    <div *ngIf="userData.length > 0">
+      <div  class="card" *ngFor="let user of userData  | paginate: config ">
+        <div class="profile">
+          <div class="imag">
+            <img [src]="user.avatarUrl">
+          </div>
+          <div class="profile-details">
+            <h1>{{user.login}}</h1>
+            <div class="url">
+              Profile URL: {{user.url}}
+            </div>
+          </div>
+
+        </div>
+        <div class="action">
+          <button (click)="findDetails(user.login)" class="btn btn-follow" font color="rgb(25, 235, 224)">Details
+          </button>
+        </div>
+
+
+       
+        <div  id="{{user.login}}" *ngIf="currentUser === user.login">
+          <ng-container *ngFor="let uRepo of userRepo">
+            <tr>
+              <td>name :</td>
+              <td>{{uRepo.repoName}} </td>
+            </tr>
+            <tr>
+              <td>language:</td>
+              <td>{{uRepo.repoLanguage}}</td>
+            </tr>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <h5 text-align="centre">Screen 1: List of search results</h5>
+    
+    <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
+    <div>
+      <div id="bg"></div>
+    </div>
+  </div>
+  
+  <div id="credits"> <a href="http://coletownsend.com" target="_blank"></a>
+    <p>
+      <a href="https://twitter.com/CTRunsThis" class="twitter-follow-button" data-show-count="false"></a>
+
+    </p>
+  </div>
+  
+  <!-- <app-pagination></app-pagination> -->
+  <!-- <button class="collapsible">Open Collapsible</button>
+    <div class="contents">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.</p>
+    </div> -->

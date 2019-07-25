@@ -1,0 +1,288 @@
+
+  
+  .container {
+    order: 3px solid rgb(56, 103, 235);
+    width: 49%;
+    margin-left: 450px;
+    margin-top: 124px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .row {
+    
+      padding: 10px;
+      background: #3895eb;
+      border-top-left-radius: 1px;
+      border-top-right-radius: 1px;
+      border-radius: -1px;
+      width: 100%;
+  
+
+  }
+
+.column {
+    width: 50%;
+  }
+  
+  .left {
+    width: 20%;
+    float: left;
+  }
+  
+  .right {
+    width: 20%;
+    float: right;
+  }
+  .middle {
+    width: 100%;
+    float: middle;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  input[type=text] {
+   
+    width: 120%;
+    border-radius: 4px;
+    background-color: white;
+    margin-top: -2px;
+    height: 27px;
+    margin-right: -35px;
+    margin-left: -150px;
+    color: #ec4848;
+    padding: 4px 10px;
+}
+
+  
+  .content {
+    padding: 10px;
+    background-color: rgb(236, 242, 245);
+    width: 100%;
+  }
+  
+  .search {
+    width: 100%;
+    position: relative;
+    display: flex;
+    
+  }
+
+  .searchButton {
+    width: 22px;
+    height: 19px;
+    border: 1px solid white;
+    background: white;
+    text-align: center;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 20px;
+
+    img{
+      height: 241%;
+      width: 365%;
+    }
+
+}
+.selectOptions{
+  height: 39px;
+  background: white;
+  border-radius: 4px;
+  margin-left: 120px;
+  width: 120px;
+}
+h5 {
+  text-align: center;
+}
+
+img {
+  float: left;
+  width: 125px;
+  height: 125px;
+  border-right: 1px solid #eee;
+}
+
+
+#bg {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	background-image: url('https://f.cl.ly/items/0t2e0B1W1x3c1U3V2q1Z/eggshell-noise.png');
+	background-repeat:repeat;
+	z-index: 10;
+	opacity: 0.5;
+}
+
+.card {
+  background: #ffffff;
+  width: 556px;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  border-radius: 13px;
+  border: 1px solid #e9e9e9;
+  box-shadow: 0 1px 4px 0px rgba(0, 0, 0, 0.05);
+  z-index: 200;
+  margin-bottom: 30px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+
+}
+	
+.profile img {
+	width: 90px;
+  height: 90px;
+  border-radius: 50%;
+	top: 1.25em;
+	position: relative;
+	margin: 5px;
+	}
+
+.name {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	position: relative;
+	top:-12%;
+	font-size: 1.1em;
+}
+
+#stats {
+	color: black;
+	height: auto;
+	position: relative;
+	width: 65%;
+	top: -6.5em;
+	text-align: left;
+	display: block;
+	margin: 0 auto;
+  font-size: .9em;
+  font-family: Lato;
+}
+
+.divider {
+	position: relative;
+	display: block;
+	width: 30%;
+	opacity: 0;
+	bottom: 3rem;
+	margin: 0 auto;
+	height: 1px;
+	z-index: 500;
+	background: #c4c5c4;
+
+}
+
+#stats td {
+  padding: 0.25rem .25em .35rem .5rem;
+  margin-top: 5%;
+  background-color: white;
+}
+
+#stats td:first-child {
+
+  text-align: right;
+  background-color: white;
+
+
+}
+
+#stats td:last-child {
+	position: relative;
+	font-size: .75rem;
+	font-weight: 700;
+  top: .1rem;
+
+}
+
+.btn-follow {
+	
+  height: 32px;
+  font-weight: 500;
+  border-radius: 2px;
+  border: 1px solid rgb(25, 235, 224);
+  background-color: white;
+  color: rgb(25, 235, 224);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+ tr, td {
+  text-align: left;
+  padding: 10px;
+  width:100%
+}
+
+ tr:nth-child(even) {background-color: #f2f2f2;}
+
+ .action {
+   text-align: right;
+   padding: 12px 30px;
+ }
+ .pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+.pagination a:hover:not(.active) {background-color: rgb(241, 198, 198);}
+
+:host {
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.list {
+  max-width: 550px;
+  margin: auto;
+}
+
+li {
+  margin-bottom: 5px;
+}
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.contents {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
