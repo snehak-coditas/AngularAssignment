@@ -25,6 +25,7 @@ export class UsersComponent implements OnInit {
   total_count;
   listOfNames: Array<any> = [];
   select = this.userFilter.sort;
+  btnName = true;
 
   config: any = {};
   constructor(
@@ -37,6 +38,7 @@ export class UsersComponent implements OnInit {
 
     };
   }
+
 
   coll = document.getElementsByClassName("collapsible");
 
@@ -54,7 +56,11 @@ export class UsersComponent implements OnInit {
     console.log(this.total_count);
 
   }
-
+  onClick(event) {
+    var target = event.target || event.srcElement || event.currentTarget;
+    var idAttr = target.attributes.id;
+    var value = idAttr.nodeValue;
+  }
   searchValue() {
     this.auth.getUsers(this.userFilter.search).subscribe((data: any) => {
       this.userData = data.items;
@@ -66,6 +72,7 @@ export class UsersComponent implements OnInit {
   }
 
   findDetails(userName) {
+    this.btnName = false;
     this.auth.getDetails(userName).subscribe((data: any) => {
       this.currentUser = userName;
 
@@ -75,29 +82,10 @@ export class UsersComponent implements OnInit {
           repoLanguage: x.language,
         };
       });
-
-      var x = document.getElementById(userName);
-      if (x) {
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          x.style.display = "none";
-        }
-      }
+      this.collapsable(userName);
       console.log(this.userRepo);
 
     });
-    for (var i = 0; i < this.coll.length; i++) {
-      this.coll[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-          content.style.display = "none";
-        } else {
-          content.style.display = "block";
-        }
-      });
-    }
   }
 
   getSortedNames() {
@@ -142,7 +130,42 @@ export class UsersComponent implements OnInit {
     this.config.currentPage = newPage;
   }
 
+  collapsable(userName) {
+    var x = document.getElementById(userName);
 
+
+    if (x) {
+      if (x.style.display === "none") {
+        x.style.display = "block";
+
+      } else {
+        x.style.display = "none";
+        this.btnName = true;
+      }
+    }
+    for (var i = 0; i < this.coll.length; i++) {
+      this.coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+  }
+
+  // x(event){
+  //   console.log("hiiiiiiiiiiiiiiiiiiiiiii", event);
+    
+  //   var a=document.getElementById("test") ;
+  //   // .value = "clicked"
+  //   console.log(a);
+    
+
+  // }
+  
 }
 
 
